@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: red 1px solid;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.battleArea {
+    height: 40%;
+}
+
+#characterArea {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    animation: characterEntry 4s ease-out forwards;;
+}
+
+#enemyArea {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    animation: enemyEntry 4s ease-out forwards;
+}
+
+.character {
+    height: 100%;
+}
+
+#dialogue {
+    height: 20%;
+}
+
+#atacar {
+    transform: translateY(100vh);
+    animation: ataque 2s ease-out forwards;
+}
+#dancar {
+    transform: translateY(100vh);
+    animation: ataque 2s ease-out forwards .5s;
+}
+#fugir {
+    transform: translateY(100vh);
+    animation: ataque 2s ease-out forwards 1s;
+}
+#especial {
+    transform: translateY(100vh);
+    animation: ataque 2s ease-out forwards 1.5s;
+}
+
+#ataques {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.action {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: black;
+    font-size: 3vh;
+}
+
+@keyframes characterEntry {
+    from {
+        transform: translateX(200vw)
+    }
+    to {
+        transform: translateX(0vw)
+    }
+}
+
+@keyframes enemyEntry {
+    from {
+        transform: translateX(-200vw)
+    }
+    to {
+        transform: translateX(0vw)
+    }
+}
+
+@keyframes ataque {
+    from {
+        transform: translateY(100vh)
+    }
+    to {
+        transform: translateY(0vw)
+    }
+}
