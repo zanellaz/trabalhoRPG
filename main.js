@@ -7,6 +7,7 @@ const shrek = {
         AntiRadiação: false
     }
 }
+let dialogo = false
 let optionOpsition = 0
 
 const positions = {
@@ -22,25 +23,28 @@ document.addEventListener('keydown', ({ key }) => {
         const actionName = positions[optionOpsition]
         const selectedAction = document.getElementById(actionName)
         resetActionsAnimation()
-        selectedAction.style.fontSize = '4vh'
-        selectedAction.style.fontWeight = 'bold'
+        selectedAction.classList.add('selected')
     }
 })
 
 const handleKeys = {
     ArrowRight() {
-        if (optionOpsition >= 3) {
-            optionOpsition = 0
-            return
+        if (!!!dialogo) {
+            if (optionOpsition >= 3) {
+                optionOpsition = 0
+                return
+            }
+            optionOpsition++
         }
-        optionOpsition++
     },
     ArrowLeft() {
-        if (optionOpsition <= 0) {
-            optionOpsition = 3
-            return
+        if (!!!dialogo) {    
+            if (optionOpsition <= 0) {
+                optionOpsition = 3
+                return
+            }
+            optionOpsition--
         }
-        optionOpsition--
     },
     Enter() {
         const action = positions[optionOpsition]
@@ -52,7 +56,7 @@ const handleKeys = {
 
 const handleActions = {
     atacar() {
-
+        mostraMensagem({message: 'FAZ O URRO! ', time: 0.1, special: true})
     },
     dancar() {
 
@@ -68,8 +72,7 @@ const handleActions = {
 function resetActionsAnimation() {
     const allActions = document.getElementsByClassName('action')
     Array.from(allActions).forEach(action => {
-        action.style.fontSize = '3vh'
-        action.style.fontWeight = 'normal'
+        action.classList.remove('selected')
     })
 }
 
@@ -88,4 +91,22 @@ function loadBattle(enemy) {
 function startBattle(enemy) {
     const enemyImg = document.getElementById("enemy")
     enemyImg.src = `/img/${enemy}.png`
+}
+
+function mostraMensagem({message, time, special}) {
+    dialogo = true
+    changeToDialogue()
+    message = Array.from(message)
+    const dialogue = document.getElementById('dialogueBox')
+    for (let i = 0; i < message.length; i++) {
+        const letter = message[i]
+        setTimeout(() => dialogue.textContent += letter, (time*(i+1)*1000))
+    }
+}
+
+function changeToDialogue() {
+    const actions = document.getElementById('actions')
+    const dialogue = document.getElementById('dialogueBox')
+    actions.style.display = 'none'
+    dialogue.style.display = 'flex'
 }

@@ -53,12 +53,25 @@ html, body {
     animation: ataque 2s ease-out forwards 1.5s;
 }
 
-#ataques {
+.selected {
+    font-size: '5vh';
+    font-weight: bold;
+}
+
+#actions {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
+}
+
+#dialogueBox {
+    width: 100%;
+    height: 100%;
+    font-size: 4vh;
+    padding: 1em;
+    letter-spacing: 0.1em;
 }
 
 .action {
