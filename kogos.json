@@ -1,5 +1,5 @@
 {
-    "HP": 100,
-    "Dano": 15,
-    "Defesa": 15
+    "name": "Paulo Kogos",
+    "description": "Um bobalhão",
+    "weakness": "Educação"
 }

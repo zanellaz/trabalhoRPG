@@ -1,16 +1,41 @@
 <div id="enemyArea" class="battleArea">
-    <img class="character" id="enemy" src="">
+    <div class="infoArea">
+        <div class="wrapper">
+            <div class="infos">
+                <p id="enemyName"></p>
+                <p id="enemyDescription"></p>
+                <p id="enemyWeakness"></p>
+                <p id="enemyHP"></p>
+            </div>
+            <img class="character" id="enemy" src="">
+        </div>
+        <div id="enemyHealthBar" class="healthBar">
+            <div id="enemyHealth"></div>
+        </div>
+    </div>
 </div>
 <div id="characterArea" class="battleArea">
-    <img class="character" id="shrek" src="img/shrek.png">
+    <div class="infoArea infoCharacter">
+        <div class="wrapper">
+            <img class="character" id="shrek" src="img/shrek.png">
+            <div class="infos">
+                <p id="characterName"></p>
+                <p id="characterDescription"></p>
+                <p id="characterWeakness"></p>
+                <p id="characterHP"></p>
+            </div>
+        </div>
+        <div id="characterHealthBar" class="healthBar">
+            <div id="characterHealth"></div>
+        </div>
+    </div>
 </div>
-<div id="dialogue" class="battleArea">
+<div id="extras" class="battleArea">
     <div id="actions" class="dialogueBox">
-        <div id="atacar" class="action" style="font-size: 4vh; font-weight: bold;">Atacar</div>
+        <div id="atacar" class="action selected">Atacar</div>
         <div id="dancar" class="action">Dançar</div>
         <div id="fugir" class="action">Fugir</div>
         <div id="especial" class="action">Especial</div>
     </div>
     <div id="dialogueBox" class="dialogueBox" style="display: none;"></div>
 </div>
-<script src="main.js"></script>

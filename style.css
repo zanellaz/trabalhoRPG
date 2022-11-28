@@ -1,13 +1,14 @@
 * {
     margin: 0;
     padding: 0;
-    border: red 1px solid;
+    border: 1px solid red;
     box-sizing: border-box;
 }
 
 html, body {
     overflow: hidden;
     height: 100%;
+    font-family: 'Comic Sans MS', 'Comic Sans', serif;
 }
 
 .battleArea {
@@ -16,23 +17,76 @@ html, body {
 
 #characterArea {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     animation: characterEntry 4s ease-out forwards;;
 }
 
 #enemyArea {
+    width: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-end;
     animation: enemyEntry 4s ease-out forwards;
 }
 
-.character {
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80%;
+}
+
+.infos {
+    width: 100%;
+}
+
+.healthBar {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 7%;
+    transition: width .4s ease-out;
+}
+
+#enemyHealthBar {
+    flex-direction: row-reverse;
+}
+
+#enemyHealth {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: lime;
+}
+
+#characterHealth {
+    display: flex;
+    align-self: flex-start;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: lime;
+}
+
+.infoArea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 40%;
     height: 100%;
 }
 
-#dialogue {
+.infoCharacter {
+    align-items: flex-start;
+}
+
+.character {
+    height: 80%;
+}
+
+#extras {
     height: 20%;
 }
 
@@ -51,11 +105,6 @@ html, body {
 #especial {
     transform: translateY(100vh);
     animation: ataque 2s ease-out forwards 1.5s;
-}
-
-.selected {
-    font-size: '5vh';
-    font-weight: bold;
 }
 
 #actions {
@@ -82,7 +131,12 @@ html, body {
     width: 25%;
     height: 100%;
     color: black;
-    font-size: 3vh;
+    font-size: 4vh;
+}
+
+.selected {
+    font-size: 5vh;
+    font-weight: bold;
 }
 
 @keyframes characterEntry {
