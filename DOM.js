@@ -48,11 +48,15 @@ function hideArrow() {
 }
 
 async function loadMessages(messages = []) {
+    const clearDialogue = () => document.getElementById('dialogue').innerHTML = ''
     changeToDialogue()
     for (const message of messages) {
+        clearDialogue()
         const { time, text } = message
+        keysPressed['Enter'] = false
         await showMessage(Array.from(text), time);
     }
+    changeToActions()
 }
 
 async function showMessage(message, time) {
@@ -61,12 +65,23 @@ async function showMessage(message, time) {
         time = 0
     const letter = message[0]
     if(!letter) {
-        const readDelay = 0.2
         showArrow()
-        await delay(readDelay).then(() => enterNow = 'dialogueFinal')
+        await waitingKeypress()
         return 
     }
     await delay(time).then(() => dialogue.textContent += letter);
     message.shift()
-    return showMessage(message, time)
+    return await showMessage(message, time)
 }
+
+function waitingKeypress() {
+    return new Promise((resolve) => {
+      document.addEventListener('keypress', onKeyHandler);
+      function onKeyHandler(e) {
+        if (e.keyCode === 13) {
+          document.removeEventListener('keypress', onKeyHandler);
+          resolve();
+        }
+      }
+    });
+  }
