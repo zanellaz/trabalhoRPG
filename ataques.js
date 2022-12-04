@@ -20,6 +20,13 @@ let actualEnemy
 
 const attack = {
     shrek() {
+        const messages = 
+        [{
+            text:'FAZ O URRO!', time: 0.5},
+        { 
+            text:'Seu bobalhão!!!!', time: 0.2
+        }]
+        loadMessages(messages)
         actualEnemy = getEnemy()
         console.log(actualEnemy);
         const realDamage = shrek.damage - enemys[actualEnemy].defense
@@ -65,7 +72,7 @@ function reloadHealthBars() {
     const characterBar = document.getElementById('characterHealthBar')
     const enemyHp = enemys[actualEnemy].hp
     enemyBar.style.width = `${enemyHp}%`
-    const characterHp = enemys.shrek.hp
+    const characterHp = shrek.hp
     characterBar.style.width = `${characterHp}%`    
 }
 

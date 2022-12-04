@@ -1,6 +1,8 @@
 const keysPressed = {}
 let optionOpsition = 0
-let enterNow = 'selectAction'
+let enterNow = null
+
+const delay = t => new Promise(resolve => setTimeout(resolve, t*1000));
 
 const positions = {
     0: 'atacar',
@@ -46,13 +48,14 @@ const handleKeys = {
         }
     },
     Enter() {
-        enterActions[enterNow]()
+        if (enterActions[enterNow])
+            enterActions[enterNow]()
+        enterNow = null
     }
 }
 
 const handleActions = {
     atacar() {
-        loadMessage({message: 'FAZ O URRO! ', time: 0.1})
         attack.shrek()
     },
     dancar() {
@@ -76,6 +79,8 @@ function loadBattle(enemy) {
     .catch((error) => {
         console.log(`erro :( \n${error})`);
     })
+    actionsAppearDuration = 3
+    delay(actionsAppearDuration).then(() => enterNow = 'selectAction')
 }
 
 function startBattle(enemy) {
@@ -100,39 +105,6 @@ function loadBattleInfos(enemy) {
     })
 }
 
-function loadMessage({message, time}) {
-    changeToDialogue()
-    message = Array.from(message)
-    setTimeout(() => {
-        showMessage({message: message, letterPosition: 0}, time)
-    }, 500);
-}
-
-function showMessage({ message, letterPosition }, time) {
-    const letter = message[letterPosition]
-    if (!letter) {
-        if (!keysPressed['Enter']) 
-            return setTimeout(() => enterNow = 'dialogueFinal', 100)
-        else 
-            return setTimeout(() => 
-                showMessage({ message: message, letterPosition: letterPosition }, time), 100)
-    }
-    if (letter == ' ') 
-        return showLetter(message, letterPosition, letter, time ,{ fast: true })
-    if (keysPressed['Enter'])
-        return showLetter(message, letterPosition, letter, time, { fast: true })
-    return showLetter(message, letterPosition, letter, time ,{ fast: false })
-}
-
-function showLetter(message, letterPosition, letter, time, { fast }) {
-    const dialogue = document.getElementById('dialogueBox')
-    fast = Number(!fast)
-    setTimeout(() => {
-        dialogue.textContent += letter
-        return showMessage({ message: message, letterPosition: ++letterPosition }, time)
-    }, time*1000*fast)
-}
-
 const enterActions = {
     selectAction() {
         removeActionsAnimation()
@@ -141,20 +113,7 @@ const enterActions = {
             handleActions[action]()
         }
     },
-    dialogue() {
-        
-    },
-    dialogueFinal() {
-        changeToActions()
-    },
     talk() {
 
     }
-}
-
-function resetActionsAnimation() {
-    const allActions = document.getElementsByClassName('action')
-    Array.from(allActions).forEach(action => {
-        action.classList.remove('selected')
-    })
 }
