@@ -76,12 +76,18 @@ async function showMessage(message, time) {
 
 function waitingKeypress() {
     return new Promise((resolve) => {
-      document.addEventListener('keypress', onKeyHandler);
-      function onKeyHandler(e) {
+      document.addEventListener('keyup', upKeyHandler);
+      function upKeyHandler(e) {
         if (e.keyCode === 13) {
-          document.removeEventListener('keypress', onKeyHandler);
-          resolve();
+          document.removeEventListener('keyup', upKeyHandler);
+          document.addEventListener('keydown', downKeyHandler);
         }
-      }
+    }
+    function downKeyHandler(e) {
+        if (e.keyCode === 13) {
+            document.removeEventListener('keyup', downKeyHandler);
+            resolve();
+        }
+    }
     });
   }
