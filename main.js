@@ -70,7 +70,7 @@ const handleActions = {
 }
 
 function loadBattle(enemy) {
-    axios.get('/batalha.html')
+    axios.get('batalha.html')
     .then((response) => {
         const html = response.data
         document.body.innerHTML = html
