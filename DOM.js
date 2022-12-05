@@ -89,5 +89,7 @@ function waitingKeypress() {
             resolve();
         }
     }
-    });
+    if (!keysPressed['Enter'])
+        document.addEventListener('keydown', downKeyHandler)
+    })
   }
