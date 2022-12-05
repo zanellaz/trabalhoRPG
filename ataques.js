@@ -22,9 +22,9 @@ const attack = {
     shrek() {
         const messages = 
         [{
-            text:'FAZ O URRO!', time: 0.5},
+            text:'FAZ O URRO!', time: 0.1},
         { 
-            text:'Seu bobalhão!!!!', time: 0.2
+            text:'Seu bobalhão!!!!', time: 0.07
         }]
         loadMessages(messages)
         actualEnemy = getEnemy()

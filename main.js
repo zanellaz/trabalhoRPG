@@ -24,7 +24,9 @@ document.addEventListener('keydown', ({ key }) => {
 
 document.addEventListener('keyup', ({ key }) => {
     if (handleKeys[key]) {
-        keysPressed[key] = false
+        setTimeout(() => {
+            keysPressed[key] = false
+        }, 300);
     }
 })
 

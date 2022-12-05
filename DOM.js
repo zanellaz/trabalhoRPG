@@ -61,9 +61,9 @@ async function loadMessages(messages = []) {
 
 async function showMessage(message, time) {
     const dialogue = document.getElementById('dialogue')
-    if (keysPressed['Enter'])
-        time = 0
     const letter = message[0]
+    if (keysPressed['Enter'] || letter === ' ')
+        time = 0    
     if(!letter) {
         showArrow()
         await waitingKeypress()
