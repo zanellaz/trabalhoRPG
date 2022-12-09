@@ -1,6 +1,7 @@
 const keysPressed = {}
-let optionOpsition = 0
+let optionPosition = 0
 let enterNow = null
+let g_letterDelay
 
 const delay = t => new Promise(resolve => setTimeout(resolve, t*1000));
 
@@ -15,7 +16,7 @@ document.addEventListener('keydown', ({ key }) => {
     if (handleKeys[key]) {
         keysPressed[key] = true
         handleKeys[key]()
-        const actionName = positions[optionOpsition]
+        const actionName = positions[optionPosition]
         const selectedAction = document.getElementById(actionName)
         resetActionsAnimation()
         selectedAction.classList.add('selected')
@@ -24,35 +25,32 @@ document.addEventListener('keydown', ({ key }) => {
 
 document.addEventListener('keyup', ({ key }) => {
     if (handleKeys[key]) {
-        setTimeout(() => {
-            keysPressed[key] = false
-        }, 300);
+        keysPressed[key] = false
     }
 })
 
 const handleKeys = {
     ArrowRight() {
         if (enterNow = 'selectAction') {
-            if (optionOpsition >= 3) {
-                optionOpsition = 0
+            if (optionPosition >= 3) {
+                optionPosition = 0
                 return
             }
-            optionOpsition++
+            optionPosition++
         }
     },
     ArrowLeft() {
         if (enterNow = 'selectAction') {    
-            if (optionOpsition <= 0) {
-                optionOpsition = 3
+            if (optionPosition <= 0) {
+                optionPosition = 3
                 return
             }
-            optionOpsition--
+            optionPosition--
         }
     },
     Enter() {
         if (enterActions[enterNow])
             enterActions[enterNow]()
-        enterNow = null
     }
 }
 
@@ -101,7 +99,7 @@ function loadBattleInfos(enemy) {
         document.getElementById('enemyDescription')
             .textContent = description
         document.getElementById('enemyWeakness')
-            .textContent = `Fraqueza: ${ weakness }`
+            .textContent = `${ weakness }`
         document.getElementById('enemyHP')
             .textContent = `100/100`
     })
@@ -110,12 +108,13 @@ function loadBattleInfos(enemy) {
 const enterActions = {
     selectAction() {
         removeActionsAnimation()
-        const action = positions[optionOpsition]
+        const action = positions[optionPosition]
         if (handleActions[action]) {
             handleActions[action]()
         }
     },
-    talk() {
-
+    dialogue() {
+        console.log('a');
+        g_letterDelay = 0
     }
 }

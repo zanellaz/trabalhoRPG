@@ -1,8 +1,8 @@
 * {
     margin: 0;
     padding: 0;
-    border: 1px solid red;
-    box-sizing: border-box;
+    /* border: 1px solid red;
+    box-sizing: border-box; */
 }
 
 html, body {
@@ -12,21 +12,18 @@ html, body {
 }
 
 .battleArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     height: 40%;
 }
 
 #characterArea {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
     animation: characterEntry 4s ease-out forwards;;
 }
 
 #enemyArea {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     animation: enemyEntry 4s ease-out forwards;
 }
 
@@ -37,8 +34,49 @@ html, body {
     height: 80%;
 }
 
+.wrapperCenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
+}
+
 .infos {
     width: 100%;
+}
+
+#enemyName {
+    display: flex;
+    justify-content: center;
+    margin: .5em 0;
+    font-size: 2em;
+}
+
+.description {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70%;
+}
+
+.description:first-child {
+    font-size: 1.5em;
+}
+
+
+.weakness {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+.weakness:first-child {
+    /* font-size: 1.5em; */
 }
 
 .healthBar {
@@ -74,16 +112,26 @@ html, body {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
-    width: 40%;
-    height: 100%;
+    width: 25%;
+    height: 90%;
 }
 
 .infoCharacter {
     align-items: flex-start;
 }
 
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 70%;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
 .character {
-    height: 80%;
+    height: 100%;
 }
 
 #extras {
@@ -147,6 +195,10 @@ html, body {
     animation: piscaSeta 0.8s linear infinite;
 }
 
+#arrow img {
+    width: 60%;
+}
+
 .action {
     position: relative;
     display: flex;
@@ -161,6 +213,10 @@ html, body {
 .selected {
     font-size: 5vh;
     font-weight: bold;
+}
+
+.whiteSpace {
+    height: 20%;
 }
 
 @keyframes characterEntry {

@@ -52,44 +52,47 @@ async function loadMessages(messages = []) {
     changeToDialogue()
     for (const message of messages) {
         clearDialogue()
+        hideArrow()
         const { time, text } = message
+        g_letterDelay = time
         keysPressed['Enter'] = false
-        await showMessage(Array.from(text), time);
+        await showMessage(Array.from(text));
     }
     changeToActions()
 }
 
-async function showMessage(message, time) {
+async function showMessage(message) {
     const dialogue = document.getElementById('dialogue')
     const letter = message[0]
-    if (keysPressed['Enter'] || letter === ' ')
-        time = 0    
+    letterTimeout = g_letterDelay
+    if (letter === ' ')
+        letterTimeout = 0
     if(!letter) {
         showArrow()
-        await waitingKeypress()
+        await waitingKeypress('Enter')
         return 
     }
-    await delay(time).then(() => dialogue.textContent += letter);
+    await delay(letterTimeout).then(() => dialogue.textContent += letter);
     message.shift()
-    return await showMessage(message, time)
+    return await showMessage(message)
 }
 
-function waitingKeypress() {
-    return new Promise((resolve) => {
-      document.addEventListener('keyup', upKeyHandler);
-      function upKeyHandler(e) {
-        if (e.keyCode === 13) {
-          document.removeEventListener('keyup', upKeyHandler);
-          document.addEventListener('keydown', downKeyHandler);
+function waitingKeypress(key) {
+    return new Promise(resolve => {
+        document.addEventListener('keyup', upKeyHandler)
+        function upKeyHandler(e) {
+            if (e.key === key) {
+                document.removeEventListener('keyup', upKeyHandler)
+                document.addEventListener('keydown', downKeyHandler)
+            }
         }
-    }
-    function downKeyHandler(e) {
-        if (e.keyCode === 13) {
-            document.removeEventListener('keyup', downKeyHandler);
-            resolve();
+        function downKeyHandler(e) {
+            if (e.key === key) {
+                document.removeEventListener('keyup', downKeyHandler)
+                resolve()
+            }
         }
-    }
-    if (!keysPressed['Enter'])
-        document.addEventListener('keydown', downKeyHandler)
+        if (!keysPressed.Enter)
+            document.addEventListener('keydown', downKeyHandler)
     })
-  }
+}
