@@ -1,0 +1,21 @@
+{
+    "hp": 100,
+    "name": "Shrek",
+    "description": "O mais foda",
+    "weakness": "Não tem",
+    "messages": [
+        {"text": "Tu nao vai vencer o poder da amizade NUNCA", "time": 0.1},
+        [
+            {"text": "O verdadeiro trabalho final de linguagens pra internet", "time": 0.1}, 
+            {"text": "sao os amigos que a gente faz pelo caminho.", "time": 0.15}
+        ],
+        [
+            {"text": "Berimbau au au", "time": 0.3}, 
+            {"text": "pega no meu pau AJDHSKHDJKSA", "time": 0.1}],
+        [
+            {"text": "Sabe o que que um rato falou pro outro", "time": 0.08 }, 
+            {"text": "Balls KKKKKKKKKKKKKKKKKKKKKKKKK", "time": 0.15}
+        ]
+    ],
+    "deadMessage": "ακαβου α αλεφπια"
+}

@@ -1,5 +1,20 @@
 {
+    "hp": 100,
     "name": "Paulo Kogos",
     "description": "Um bobalhão",
-    "weakness": "Educação"
+    "weakness": "Educação",
+    "messages": [
+        {"text": "ANARCOCAPITALISMO!", "time": 0.1},
+        [
+            {"text": "A placa desse cara é PUM", "time": 0.1}, 
+            {"text": "HA HA HA", "time": 0.4}
+        ],
+        [
+            {"text": "Eu poderia citar desde Arisóteles, São Tomás de Aquino", "time": 0.08}, 
+            {"text": "Ou até Burke e Churchill,", "time": 0.08},
+            {"text": "Mas eu vou citar o Monark.", "time": 0.12}
+        ], 
+        {"text": "Imposto é roubo!", "time": 0.15}
+    ],
+    "deadMessage": "ακαβου α αλεφπια"
 }

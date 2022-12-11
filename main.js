@@ -93,7 +93,7 @@ function loadBattleInfos(enemy) {
     axios.get(`${enemy}.json`)
     .then(({ data }) => {
         const enemy = JSON.parse(JSON.stringify(data))
-        const { name, description, weakness } = enemy
+        const { hp, name, description, weakness } = enemy
         document.getElementById('enemyName')
             .textContent = name
         document.getElementById('enemyDescription')
@@ -101,7 +101,20 @@ function loadBattleInfos(enemy) {
         document.getElementById('enemyWeakness')
             .textContent = `${ weakness }`
         document.getElementById('enemyHP')
-            .textContent = `100/100`
+            .textContent = `${hp}/${hp}`
+    })
+    axios.get(`shrek.json`)
+    .then(({ data }) => {
+        const enemy = JSON.parse(JSON.stringify(data))
+        const { hp, name, description, weakness } = enemy
+        document.getElementById('characterName')
+            .textContent = name
+        document.getElementById('characterDescription')
+            .textContent = description
+        document.getElementById('characterWeakness')
+            .textContent = `${ weakness }`
+        document.getElementById('characterHP')
+            .textContent = `${hp}/${hp}`
     })
 }
 

@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Miniver&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@font-face {font-family: "Shrek"; src: url("//db.onlinewebfonts.com/t/2179845ee578cd3bb30b55dc922bfb38.eot"); src: url("//db.onlinewebfonts.com/t/2179845ee578cd3bb30b55dc922bfb38.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2179845ee578cd3bb30b55dc922bfb38.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2179845ee578cd3bb30b55dc922bfb38.woff") format("woff"), url("//db.onlinewebfonts.com/t/2179845ee578cd3bb30b55dc922bfb38.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2179845ee578cd3bb30b55dc922bfb38.svg#Shrek") format("svg"); }
+
+:root {
+    --borderColor: #4C6DED;
+    --borderSecondColor: #8EA5B3;
+    --bgSecondColor: rgb(228, 246, 255);
+    --bgMainColor: #e8fcff;
+    --bgLightColor: #C4DCFE;
+    --emphasisColor: #335469;
+    --emphSecondColor: #536069;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +24,16 @@
 }
 
 html, body {
+    background-color: var(--bgLightColor);
     overflow: hidden;
     height: 100%;
     font-family: 'Comic Sans MS', 'Comic Sans', serif;
+    font-family: 'Miniver';
+    font-family: 'Roboto';
+    font-family: 'Shrek';
+    font-family: 'Press Start 2P';
+    font-family: 'Zen Dots';
+    font-family: 'Silkscreen';
 }
 
 .battleArea {
@@ -19,11 +44,12 @@ html, body {
 }
 
 #characterArea {
-    animation: characterEntry 4s ease-out forwards;;
+    padding: 1vh;
+    animation: characterEntry 4s ease-out forwards;
 }
 
 #enemyArea {
-    width: 100%;
+    padding: 1vh;
     animation: enemyEntry 4s ease-out forwards;
 }
 
@@ -31,89 +57,189 @@ html, body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 .wrapperCenter {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100%;
-    height: 60%;
+    height: 50%;
+}
+
+.wrapperCenter div {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.infosWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+}
+
+#characterInfos {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.avatarWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+}
+
+#characterAvatar {
+    justify-content: flex-start;
 }
 
 .infos {
+    height: 100%;
     width: 100%;
+}
+
+.nameWrapper {
+    padding: 1.6vh;
+    /* border-bottom: var(--borderColor) 2pt solid; */
+    border-radius: 2pt;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 #enemyName {
     display: flex;
     justify-content: center;
-    margin: .5em 0;
-    font-size: 2em;
+    font-size: 4vh;
+}
+
+#characterName {
+    display: flex;
+    justify-content: center;
+    font-size: 4vh;
 }
 
 .description {
-    height: 100%;
+    /* border: var(--borderColor) 1pt solid; */
+    border-radius: 4pt;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 70%;
+    width: 60%;
 }
 
-.description:first-child {
-    font-size: 1.5em;
+.description h4 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 3vh;
 }
 
+.description p {
+    font-size: 2.5vh;
+    padding: 0.5em;
+}
 
 .weakness {
-    height: 100%;
+    /* border: var(--borderColor) 1pt solid; */
+    border-radius: 4pt;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 30%;
+    width: 35%;
 }
 
-.weakness:first-child {
-    /* font-size: 1.5em; */
+.weakness h4 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 3vh;
+    animation: nome 5s reverse;
+}
+
+.weakness p {
+    text-align: center;
+    font-size: 2.5vh;
+    padding: 0.5em;
+}
+
+#enemyHP {
+    height: 10%;
+    font-size: 4vh;
+    text-align: center;
+}
+
+#characterHP {
+    height: 10%;
+    font-size: 4vh;
+    text-align: center;
+}
+
+.healthArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15%;
 }
 
 .healthBar {
+    overflow: hidden;
+    border: 1px solid var(--emphasisColor);
+    border-radius: 8pt;
+    background-color: var(--borderSecondColor);
     display: flex;
     justify-content: flex-start;
+    flex-direction: row-reverse;
+    width: 90%;
+    height: 70%;
+}
+
+.health {
     width: 100%;
-    height: 7%;
+    height: 100%;
+    border-radius: 8pt;
+    background-color: lime;
     transition: width .4s ease-out;
 }
 
-#enemyHealthBar {
-    flex-direction: row-reverse;
-}
-
-#enemyHealth {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    background-color: lime;
-}
-
-#characterHealth {
-    display: flex;
-    align-self: flex-start;
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    background-color: lime;
-}
-
 .infoArea {
+    z-index: 0;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    /* border: var(--borderColor) 2pt solid; */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
-    width: 25%;
-    height: 90%;
+    background: rgb(221,235,237);
+    background: linear-gradient(90deg, var(--bgMainColor) 0%, var(--bgSecondColor) 100%);
+    width: 70%;
+    height: 80%;
+    border-radius: 10pt;
+}
+
+#enemyArrow {
+    transform: translateX(-1px);
+    z-index: 1;
+    width: 20%;
+    height: 80%;
+    border-radius: 2px;
+    background-color: var(--bgSecondColor);
+    clip-path: polygon(1% 31%, 14% 49%, 15% 50%, 14% 51%, 1% 69%, 0 70%, 0 30%);
+}
+
+#characterArrow {
+    transform: translateX(1px);
+    z-index: 1;
+    width: 20%;
+    height: 80%;
+    border-radius: 2px;
+    background-color: var(--bgMainColor);
+    clip-path: polygon(99% 69%, 86% 51%, 85% 50%, 86% 49%, 99% 31%, 100% 30%, 100% 70%);
 }
 
 .infoCharacter {
@@ -121,6 +247,9 @@ html, body {
 }
 
 .avatar {
+    background-color: white;
+    border: var(--borderColor) 3pt solid;
+    margin: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,12 +259,21 @@ html, body {
     aspect-ratio: 1 / 1;
 }
 
-.character {
+.imgAvatar {
     height: 100%;
 }
 
 #extras {
-    height: 20%;
+    background-color: white;
+    box-sizing: border-box;
+    border: var(--borderColor) 3pt solid;
+    height: 16%;
+}
+
+#extras .action {
+    background-color: var(--bgMainColor);
+    border: var(--borderColor) 1pt solid;
+    border-left: 0;
 }
 
 #atacar {
@@ -153,6 +291,7 @@ html, body {
 #especial {
     transform: translateY(100vh);
     animation: ataque 2s ease-out forwards .9s;
+    border-right: none !important;
 }
 
 #actions {
@@ -164,6 +303,7 @@ html, body {
 }
 
 #dialogueBox {
+    background-color: white;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -211,12 +351,8 @@ html, body {
 }
 
 .selected {
-    font-size: 5vh;
-    font-weight: bold;
-}
-
-.whiteSpace {
-    height: 20%;
+    font-size: 6vh;
+    /* font-weight: bold; */
 }
 
 @keyframes characterEntry {

@@ -1,46 +1,70 @@
 <div id="enemyArea" class="battleArea">
-    <div class="infoArea">
-        <div class="wrapper">
-            <div class="infos">
-                <p id="enemyName"></p>
-                <div class="wrapperCenter">
-                    <div class="description">
-                        <p style="text-align: center;">Descrição</p>
-                        <p id="enemyDescription"></p>
+    <div class="infosWrapper" id="enemyInfos">
+        <div class="infoArea infoEnemy">
+            <div class="wrapper">
+                <div class="infos">
+                    <div class="nameWrapper">
+                        <p id="enemyName"></p>
                     </div>
-                    <div class="weakness">
-                        <p style="text-align: center;">Fraqueza</p>
-                        <p id="enemyWeakness"></p>
+                    <div class="wrapperCenter">
+                        <div class="description">
+                            <h4>Descrição</h4>
+                            <p id="enemyDescription"></p>
+                        </div>
+                        <div class="weakness">
+                            <h4>Fraqueza</h4>
+                            <p id="enemyWeakness"></p>
+                        </div>
                     </div>
+                    <p id="enemyHP"></p>
                 </div>
-                <p id="enemyHP"></p>
+            </div>
+            <div class="healthArea">
+                <div id="enemyHealthBar" class="healthBar">
+                    <div id="enemyHealth" class="health"></div>
+                </div>
             </div>
         </div>
-        <div id="enemyHealthBar" class="healthBar">
-            <div id="enemyHealth"></div>
-        </div>
-        <div class="whiteSpace"></div>
+        <div id="enemyArrow"></div>
     </div>
-    <div class="avatar">
-        <img class="character" id="enemy" src="">
+    <div class="avatarWrapper" id="enemyAvatar">
+        <div class="avatar">
+            <img class="imgAvatar" id="enemy" src="">
+        </div>
     </div>
 </div>
 <div id="characterArea" class="battleArea">
-    <div class="avatar">
-        <img class="character" id="shrek" src="img/shrek.png">
-    </div>
-    <div class="infoArea infoCharacter">
-        <div class="whiteSpace"></div>
-        <div class="wrapper">
-            <div class="infos">
-                <p id="characterName"></p>
-                <p id="characterDescription"></p>
-                <p id="characterWeakness"></p>
-                <p id="characterHP"></p>
-            </div>
+    <div class="avatarWrapper" id="characterAvatar">
+        <div class="avatar">
+            <img class="imgAvatar" id="shrek" src="img/shrek.png">
         </div>
-        <div id="characterHealthBar" class="healthBar">
-            <div id="characterHealth"></div>
+    </div>
+    <div class="infosWrapper" id="characterInfos">
+        <div id="characterArrow"></div>
+        <div class="infoArea infoCharacter">
+            <div class="wrapper">
+                <div class="infos">
+                    <div class="nameWrapper">
+                        <p id="characterName"></p>
+                    </div>
+                    <div class="wrapperCenter">
+                        <div class="description">
+                            <h4>Descrição</h4>
+                            <p id="characterDescription"></p>
+                        </div>
+                        <div class="weakness">
+                            <h4>Fraqueza</h4>
+                            <p id="characterWeakness"></p>
+                        </div>
+                    </div>
+                    <p id="characterHP"></p>
+                </div>
+            </div>
+            <div class="healthArea">
+                <div id="characterHealthBar" class="healthBar">
+                    <div id="characterHealth" class="health"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

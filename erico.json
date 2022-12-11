@@ -1,0 +1,15 @@
+{
+    "hp": 200,
+    "name": "Érico Kemper",
+    "description": "Um dos professores existentes",
+    "weakness": "Estrelas",
+    "messages": [
+        {"text": "Ωηδε εςτου ευ, Πά πεςιςτεηζια.", "time": 0.2},
+        {"text": "Σ α αηΐτα έ υμα εςτπελα?", "time": 0.1},
+        [
+            {"text": "Ω ελοη μυςκ έ υμ αλιεηίφεηα ε εςτά εητπε ηός!!", "time": 0.1}, 
+            {"text": "ε ςε ευ ρεφαπ ο ωματςαρρ δε υμ ετ?", "time": 0.15}
+        ]
+    ],
+    "deadMessage": "ακαβου α αλεφπια"
+}

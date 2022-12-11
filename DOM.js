@@ -1,3 +1,16 @@
+function characterImage(imageName) {
+    document.getElementById('shrek').src = `img/${imageName}.png`
+}
+
+function enemyImage(imageName) {
+    document.getElementById('enemy').src = `img/${imageName}.png`
+}
+
+function changeDialogueFont(font) {
+    const dialogue = document.getElementById('dialogue')
+    dialogue.style.fontFamily = font
+}
+
 function resetActionsAnimation() {
     const allActions = document.getElementsByClassName('action')
     Array.from(allActions).forEach(action => {
@@ -50,6 +63,7 @@ function hideArrow() {
 async function loadMessages(messages = []) {
     const clearDialogue = () => document.getElementById('dialogue').innerHTML = ''
     changeToDialogue()
+    messages = Array.isArray(messages) ? messages : [messages]
     for (const message of messages) {
         clearDialogue()
         hideArrow()
@@ -58,7 +72,6 @@ async function loadMessages(messages = []) {
         keysPressed['Enter'] = false
         await showMessage(Array.from(text));
     }
-    changeToActions()
 }
 
 async function showMessage(message) {
