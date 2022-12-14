@@ -4,7 +4,7 @@ let enterNow = null
 let g_letterDelay
 
 const delay = t => new Promise(resolve => setTimeout(resolve, t*1000));
-
+    
 const positions = {
     0: 'atacar',
     1: 'dancar',
@@ -59,13 +59,16 @@ const handleActions = {
         attack.shrek()
     },
     dancar() {
-
+        $('.modal-wrapper').toggleClass('open');
+        $('.page-wrapper').toggleClass('blur-it');
     },
     fugir() {
-
+        $('.modal-wrapper').toggleClass('open');
+        $('.page-wrapper').toggleClass('blur-it');
     },
     especial() {
-
+        $('.modal-wrapper').toggleClass('open');
+        $('.page-wrapper').toggleClass('blur-it');
     }
 }
 
@@ -85,7 +88,7 @@ function loadBattle(enemy) {
 
 function startBattle(enemy) {
     const enemyImg = document.getElementById("enemy")
-    enemyImg.src = `/img/${enemy}.png`
+    enemyImg.src = `img/${enemy}.png`
     loadBattleInfos(enemy)
 }
 

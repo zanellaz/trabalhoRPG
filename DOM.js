@@ -11,6 +11,11 @@ function changeDialogueFont(font) {
     dialogue.style.fontFamily = font
 }
 
+function changeDialogueColor(color) {
+    const dialogue = document.getElementById('dialogue')
+    dialogue.style.color = color
+}
+
 function resetActionsAnimation() {
     const allActions = document.getElementsByClassName('action')
     Array.from(allActions).forEach(action => {

@@ -1,0 +1,27 @@
+{
+    "hp": 150,
+    "name": "Manoel Gomes",
+    "description": "Caneta azul, azul caneta",
+    "weakness": "Red pen",
+    "messages": [
+        {"text": "Parapa pa papa pa parapa", "time": 0.1},
+        [
+            {"text": "Eu tenho trabalhado nisso", "time": 0.1}, 
+            {"text": "Até o OSSO.", "time": 0.2}
+        ],
+        [
+            {"text": "Qual o instrumento preferido do esqueleto?", "time": 0.1}, 
+            {"text": "O tromBONE", "time": 0.2}
+        ],
+        [
+            {"text": "O que o esqueleto disse quando estava solitário?", "time": 0.1}, 
+            {"text": "Estou SÓ OSSINHO (sozinho)", "time": 0.2}
+        ],
+        [
+            {"text": "Qual o doce preferido do esqueleto?", "time": 0.1}, 
+            {"text": "OSSOrvete", "time": 0.2}
+        ],
+        {"text": "Eu sou osso duro de roer ;)", "time": 0.1}
+    ],
+    "deadMessage": {"text": "Determinação", "time": 0.8}
+}

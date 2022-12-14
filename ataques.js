@@ -84,22 +84,28 @@ const attack = {
     },
     async manoel() {
         const { font, damage } = enemys.manoel
+        enemyImage('manoelAtaque')
+        changeDialogueColor('blue')
         changeDialogueFont(font)
         const allMessages = await getAtackMessages('manoel')
         const messages = randomMessage(allMessages)
         await loadMessages(messages)
         const realDamage = damage - shrek.defense
         shrek.hp -= realDamage
+        enemyImage('manoel')
         reloadCharacterBar()
+        changeDialogueColor('black')
     },
     async sans() {
         const { font, damage } = enemys.sans
+        enemyImage('sansAtaque')
         changeDialogueFont(font)
         const allMessages = await getAtackMessages('sans')
         const messages = randomMessage(allMessages)
         await loadMessages(messages)
         const realDamage = damage - shrek.defense
         shrek.hp -= realDamage
+        enemyImage('sans')
         reloadCharacterBar()
     }
 }

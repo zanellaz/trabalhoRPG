@@ -1,0 +1,37 @@
+{
+    "hp": 150,
+    "name": "Manoel Gomes",
+    "description": "Caneta azul, azul caneta",
+    "weakness": "Red pen",
+    "messages": [
+        [
+            {"text": "Eu vou deixar de ser besta", "time": 0.1}, 
+            {"text": "E arrumar uma mulher pra mim", "time": 0.1},
+            {"text": "Eu vejo só os outro", "time": 0.1 }, 
+            {"text": "Com a mulher nos braço, fazendo assim", "time": 0.1}
+        ],
+        [
+            {"text": "Ai, ai, ai, ai", "time": 0.4}, 
+            {"text": "Ai, ai, ai, ai", "time": 0.4}
+        ],
+        [
+            {"text": "Ela é muito é vagabunda, vagabunda ela é", "time": 0.1}, 
+            {"text": "Ela deixa o marido em casa e vai ir pro cabaré", "time": 0.1}
+        ],
+        [
+            {"text": "Caneta azul", "time": 0.2}, 
+            {"text": "Azul caneta", "time": 0.2},
+            {"text": "Caneta azul tá marcada com minha letra", "time": 0.2}
+        ],
+        [
+            {"text": "Olha, se você não me ama", "time": 0.1}, 
+            {"text": "Então não me ligue", "time": 0.1},
+            {"text": "Não fique me fazendo queixa", "time": 0.1 }, 
+            {"text": "Não faça como as outras já tem feito", "time": 0.1},
+            {"text": "Que minha vida é sofrendo", "time": 0.1 }, 
+            {"text": "Por causa de uma mulher bandida", "time": 0.1},
+            {"text": "Já teve noite de eu querer beber veneno", "time": 0.1 }
+        ]
+    ],
+    "deadMessage": {"text": "Caneta azul az...", "time": 0.8}
+}
