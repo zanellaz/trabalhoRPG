@@ -31,7 +31,7 @@ document.addEventListener('keyup', ({ key }) => {
 
 const handleKeys = {
     ArrowRight() {
-        if (enterNow = 'selectAction') {
+        if (enterNow === 'selectAction') {
             if (optionPosition >= 3) {
                 optionPosition = 0
                 return
@@ -40,7 +40,7 @@ const handleKeys = {
         }
     },
     ArrowLeft() {
-        if (enterNow = 'selectAction') {    
+        if (enterNow === 'selectAction') {    
             if (optionPosition <= 0) {
                 optionPosition = 3
                 return
@@ -62,14 +62,26 @@ const handleActions = {
         $('.modal-wrapper').toggleClass('open');
         $('.page-wrapper').toggleClass('blur-it');
     },
-    fugir() {
-        $('.modal-wrapper').toggleClass('open');
-        $('.page-wrapper').toggleClass('blur-it');
+    async fugir() {
+        await loadEnemys()
+        reloadLifes()
+        optionPosition = 0
     },
     especial() {
         $('.modal-wrapper').toggleClass('open');
         $('.page-wrapper').toggleClass('blur-it');
     }
+}
+
+async function loadEnemys() {
+    await axios.get('enemys.html')
+    .then((response) => {
+        const html = response.data
+        document.body.innerHTML = html
+    })
+    .catch((error) => {
+        console.log(`erro :( \n${error})`);
+    })
 }
 
 function loadBattle(enemy) {

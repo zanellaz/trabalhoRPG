@@ -110,6 +110,11 @@ const attack = {
     }
 }
 
+function reloadLifes() {
+    enemys[actualEnemy].hp = enemys[actualEnemy].maxHp
+    shrek.hp = shrek.maxHp
+}
+
 const special = {
     shrek() {
         chamaEspecial('shrek')
