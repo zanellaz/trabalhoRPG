@@ -3,6 +3,13 @@ let optionPosition = 0
 let enterNow = null
 let g_letterDelay
 
+let music = 'erico'
+createjs.Sound.registerSound(`audio/erico.mp3`, music)
+// createjs.Sound.registerSound(`audio/kogos.mp3`, music.kogos);
+// createjs.Sound.registerSound(`audio/manoel.mp3`, music.manoel);
+// createjs.Sound.registerSound(`audio/dance.mp3`, music.dance);
+// createjs.Sound.registerSound(`audio/sans.mp3`, music.sans);
+
 const delay = t => new Promise(resolve => setTimeout(resolve, t*1000));
     
 const positions = {
@@ -84,6 +91,10 @@ async function loadEnemys() {
     })
 }
 
+function playSound() {
+    createjs.Sound.play(music);
+}
+
 function loadBattle(enemy) {
     axios.get('batalha.html')
     .then((response) => {
@@ -94,6 +105,7 @@ function loadBattle(enemy) {
     .catch((error) => {
         console.log(`erro :( \n${error})`);
     })
+    playSound(enemy)
     actionsAppearDuration = 3
     delay(actionsAppearDuration).then(() => enterNow = 'selectAction')
 }
@@ -101,6 +113,7 @@ function loadBattle(enemy) {
 function startBattle(enemy) {
     const enemyImg = document.getElementById("enemy")
     enemyImg.src = `img/${enemy}.png`
+
     loadBattleInfos(enemy)
 }
 
