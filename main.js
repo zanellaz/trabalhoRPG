@@ -3,13 +3,6 @@ let optionPosition = 0
 let enterNow = null
 let g_letterDelay
 
-let music = 'erico'
-createjs.Sound.registerSound(`audio/erico.mp3`, music)
-// createjs.Sound.registerSound(`audio/kogos.mp3`, music.kogos);
-// createjs.Sound.registerSound(`audio/manoel.mp3`, music.manoel);
-// createjs.Sound.registerSound(`audio/dance.mp3`, music.dance);
-// createjs.Sound.registerSound(`audio/sans.mp3`, music.sans);
-
 const delay = t => new Promise(resolve => setTimeout(resolve, t*1000));
     
 const positions = {
@@ -17,6 +10,22 @@ const positions = {
     1: 'dancar',
     2: 'fugir',
     3: 'especial'
+}
+
+let music = {
+    erico: 'erico',
+    kogos: 'kogos',
+    manoel: 'manoel',
+    sans: 'sans',
+    dance: 'dance'
+}
+
+function pinto() {   
+    createjs.Sound.registerSound(`audio/erico.mp3`, music.erico)
+    createjs.Sound.registerSound(`audio/kogos.mp3`, music.kogos);
+    createjs.Sound.registerSound(`audio/manoel.mp3`, music.manoel);
+    createjs.Sound.registerSound(`audio/dance.mp3`, music.dance);
+    createjs.Sound.registerSound(`audio/sans.mp3`, music.sans);
 }
 
 document.addEventListener('keydown', ({ key }) => {
@@ -71,6 +80,7 @@ const handleActions = {
     },
     async fugir() {
         await loadEnemys()
+        pinto()
         reloadLifes()
         optionPosition = 0
     },
@@ -91,8 +101,8 @@ async function loadEnemys() {
     })
 }
 
-function playSound() {
-    createjs.Sound.play(music);
+function playSound(song) {
+    createjs.Sound.play(music[song]);
 }
 
 function loadBattle(enemy) {
