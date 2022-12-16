@@ -12,20 +12,22 @@ const positions = {
     3: 'especial'
 }
 
-let music = {
-    erico: 'erico',
-    kogos: 'kogos',
-    manoel: 'manoel',
-    sans: 'sans',
-    dance: 'dance'
+const audio = {
+    bruh: 'bruh',
 }
 
-function pinto() {   
-    createjs.Sound.registerSound(`audio/erico.mp3`, music.erico)
-    createjs.Sound.registerSound(`audio/kogos.mp3`, music.kogos);
-    createjs.Sound.registerSound(`audio/manoel.mp3`, music.manoel);
-    createjs.Sound.registerSound(`audio/dance.mp3`, music.dance);
-    createjs.Sound.registerSound(`audio/sans.mp3`, music.sans);
+let musicPlaying
+function playMusic(enemy) {
+    musicPlaying = new Audio(`music/${enemy}.mp3`);
+    musicPlaying.play();
+}
+
+function registerSounds() {   
+    createjs.Sound.registerSound(`audio/bruh.mp3`, audio.bruh)
+}
+
+function playSound(song) {
+    createjs.Sound.play(audio[song]);
 }
 
 document.addEventListener('keydown', ({ key }) => {
@@ -79,9 +81,11 @@ const handleActions = {
         $('.page-wrapper').toggleClass('blur-it');
     },
     async fugir() {
-        await loadEnemys()
-        pinto()
         reloadLifes()
+        musicPlaying.pause()
+        musicPlaying.currentTime = 0
+        await loadEnemys()
+        playSound('bruh')
         optionPosition = 0
     },
     especial() {
@@ -101,10 +105,6 @@ async function loadEnemys() {
     })
 }
 
-function playSound(song) {
-    createjs.Sound.play(music[song]);
-}
-
 function loadBattle(enemy) {
     axios.get('batalha.html')
     .then((response) => {
@@ -115,7 +115,7 @@ function loadBattle(enemy) {
     .catch((error) => {
         console.log(`erro :( \n${error})`);
     })
-    playSound(enemy)
+    playMusic(enemy)
     actionsAppearDuration = 3
     delay(actionsAppearDuration).then(() => enterNow = 'selectAction')
 }
@@ -165,7 +165,6 @@ const enterActions = {
         }
     },
     dialogue() {
-        console.log('a');
         g_letterDelay = 0
     }
 }

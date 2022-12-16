@@ -17,5 +17,5 @@
             {"text": "Balls KKKKKKKKKKKKKKKKKKKKKKKKK", "time": 0.15}
         ]
     ],
-    "deadMessage": "Burro me ajuda :("
+    "deadMessage": {"text": "Burro me ajuda :(", "time": 0.15}
 }

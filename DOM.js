@@ -65,7 +65,7 @@ function hideArrow() {
     arrow.style.display = 'none'
 }
 
-async function loadMessages(messages = []) {
+async function loadMessages(messages) {
     const clearDialogue = () => document.getElementById('dialogue').innerHTML = ''
     changeToDialogue()
     messages = Array.isArray(messages) ? messages : [messages]

@@ -16,5 +16,5 @@
         ], 
         {"text": "Imposto é roubo!", "time": 0.15}
     ],
-    "deadMessage": "ακαβου α αλεφπια"
+    "deadMessage": {"text": "Educação...", "time": 0.5}
 }

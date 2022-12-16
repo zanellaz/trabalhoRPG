@@ -53,6 +53,8 @@ const attack = {
         actualEnemy = getEnemy()
         const realDamage = shrek.damage - enemys[actualEnemy].defense
         enemys[actualEnemy].hp -= realDamage
+        if (enemys[actualEnemy].hp <= 0)
+            death(actualEnemy)
         reloadEnemyBar()
         characterImage('shrek')
         await attack[actualEnemy]()
@@ -67,6 +69,8 @@ const attack = {
         await loadMessages(messages)
         const realDamage = damage - shrek.defense
         shrek.hp -= realDamage
+        if (shrek.hp <= 0)
+            death('shrek')
         reloadCharacterBar()
         enemyImage('erico')
     },
@@ -79,6 +83,8 @@ const attack = {
         await loadMessages(messages)
         const realDamage = damage - shrek.defense
         shrek.hp -= realDamage
+        if (shrek.hp <= 0)
+            death('shrek')
         enemyImage('kogos')
         reloadCharacterBar()
     },
@@ -92,6 +98,8 @@ const attack = {
         await loadMessages(messages)
         const realDamage = damage - shrek.defense
         shrek.hp -= realDamage
+        if (shrek.hp <= 0)
+            death('shrek')
         enemyImage('manoel')
         reloadCharacterBar()
         changeDialogueColor('black')
@@ -105,12 +113,22 @@ const attack = {
         await loadMessages(messages)
         const realDamage = damage - shrek.defense
         shrek.hp -= realDamage
+        if (shrek.hp <= 0)
+            death('shrek')
         enemyImage('sans')
         reloadCharacterBar()
     }
 }
 
+async function death(character) {
+    enterNow = 'dialogue'
+    const message = await getDeadMessage(character)
+    await loadMessages(message)
+    await handleActions.fugir()
+}
+
 function reloadLifes() {
+    actualEnemy = getEnemy()
     enemys[actualEnemy].hp = enemys[actualEnemy].maxHp
     shrek.hp = shrek.maxHp
 }
@@ -177,6 +195,7 @@ async function getDeadMessage(character) {
     let deadMessage
     await axios.get(`${character}.json`)
         .then(({ data }) => {
+            console.log(JSON.parse(JSON.stringify(data)).deadMessage);
             deadMessage = JSON.parse(JSON.stringify(data)).deadMessage
         })
     return deadMessage
